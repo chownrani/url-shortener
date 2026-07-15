@@ -4,6 +4,7 @@ import java.time.Instant;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,8 +20,11 @@ import lombok.Setter;
 @Document(collection = "urls")
 public class UrlModel {
     
+    @Transient
+    public static final String  SEQUENCE_NAME = "users_sequence";
+
     @Id
-    private ObjectId id;
+    private Long id;
 
     @Indexed(unique = true)
     private String shortCode;
