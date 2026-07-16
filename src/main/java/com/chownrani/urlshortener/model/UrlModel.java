@@ -20,6 +20,9 @@ import lombok.Setter;
 public class UrlModel {
     
     @Transient
+    public static final String BASE_URL = "https://rani.com/";
+
+    @Transient
     public static final String  SEQUENCE_NAME = "users_sequence";
 
     @Id
@@ -27,6 +30,9 @@ public class UrlModel {
 
     @Indexed(unique = true)
     private String shortCode;
+
+    @Indexed(unique = true)
+    private String shortUrl;
 
     private String originalUrl;
 
