@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 public class UrlService {
 
     private final UrlRepository repository;
+    private final ShortCodeGenerator shortCodeGenerator;
 
     public String getShortUrl(UrlModel originalUrl) {
         String shortCode = createShortCode(originalUrl.getId());
@@ -25,7 +26,7 @@ public class UrlService {
     }
 
     public String createShortCode(Long urlSeq) {
-        return ShortCodeGenerator.createShortCode(urlSeq);
+        return shortCodeGenerator.createShortCode(urlSeq);
     }
 
 }
